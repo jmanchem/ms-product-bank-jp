@@ -13,14 +13,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Builder
 public class Product {
     @Id
-    private String id;
-
+    private String productId;
     @Field(name = "productName")
     private String productName;
-
-    @Field(name = "productType")
+    @Field(name = "productType") // Pasivo (cuenta corriente, cuenta de ahorro,plazo fijo) o activo (creditos)
     private String productType;
-
-    @Field(name = "rules")
+    @Field(name = "rules") //Tipo de customer (PERSONAL-EMPRESARIAL)
     private Rules rules;
 }

@@ -10,9 +10,12 @@ public class Rules {
     private String customerType;
 
     private boolean commissionMaintenance;
+    private double maximumCommissionMaintenance;
 
-    private boolean maximumLimitMonthlyMovements;
-    private Integer maximumLimitMonthlyMovementsQuantity;
+    private boolean maximumlimitMonthlyMovements;
+
+    private Integer maximumMonthlyMovementsQuantityRetirement;
+    private Integer maximumMonthlyMovementsQuantityDeposit;
 
     private Integer maximumLimitCreditPerson;
     private Integer maximumLimitCreditEnterprise;

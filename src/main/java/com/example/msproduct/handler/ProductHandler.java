@@ -59,7 +59,7 @@ public class ProductHandler {
     public Mono<ServerResponse> save(ServerRequest request){
         Mono<Product> product = request.bodyToMono(Product.class);
         return product.flatMap(productService::create)
-                .flatMap(p -> ServerResponse.created(URI.create("/api/client/".concat(p.getId())))
+                .flatMap(p -> ServerResponse.created(URI.create("/api/client/".concat(p.getProductId())))
                         .contentType(MediaType.APPLICATION_JSON)
                         .bodyValue(p))
                 .onErrorResume(error -> {
@@ -79,10 +79,10 @@ public class ProductHandler {
         return errorHandler(
                 product
                         .flatMap(p -> {
-                            p.setId(id);
+                            p.setProductId(id);
                             return productService.update(p);
                         })
-                        .flatMap(p-> ServerResponse.created(URI.create("/api/product/".concat(p.getId())))
+                        .flatMap(p-> ServerResponse.created(URI.create("/api/product/".concat(p.getProductId())))
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .bodyValue(p))
         );
